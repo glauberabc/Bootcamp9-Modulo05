@@ -71,6 +71,13 @@ export default class Main extends Component {
     }
   };
 
+  handleDelete = repo => {
+    const { repositories } = this.state;
+    this.setState({
+      repositories: repositories.filter(t => t !== repo),
+    });
+  };
+
   render() {
     const { newRepo, repositories, loading, errMsg, error } = this.state;
 
@@ -107,9 +114,18 @@ export default class Main extends Component {
           {repositories.map(repository => (
             <li key={repository.name}>
               <span>{repository.name}</span>
-              <Link to={`/repository/${encodeURIComponent(repository.name)}`}>
-                Detalhes
-              </Link>
+              <div>
+                <Link to={`/repository/${encodeURIComponent(repository.name)}`}>
+                  Detalhes
+                </Link>
+                <button
+                  key={repository}
+                  onClick={() => this.handleDelete(repository)}
+                  type="button"
+                >
+                  X
+                </button>
+              </div>
             </li>
           ))}
         </List>

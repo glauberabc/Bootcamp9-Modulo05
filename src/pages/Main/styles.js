@@ -89,5 +89,24 @@ export const List = styled.ul`
       color: #7159c1;
       text-decoration: none;
     }
+
+    div {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+
+      button {
+        color: #fff;
+        font-size: 10px;
+        width: 25px;
+        height: 25px;
+        margin-left: 15px;
+
+        background: #7159c1;
+        border: 0;
+        border-radius: 50%;
+      }
+    }
   }
 `;
